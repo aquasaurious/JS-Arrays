@@ -189,7 +189,13 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
-
+function addTen(nums) {
+  var numsPlus = [];
+  for (var i = 0; i < nums.length; i++) {
+    numsPlus.push(Number(nums[i])+10);
+  }
+  return numsPlus;
+}
 
 
 //Next Problem
@@ -210,7 +216,10 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+function longer(arr1, arr2) {
+  if (arr2.length < arr1.length) return arr1;
+  return arr2;                                         // the way this is written, the second array will be returned in the event they are equal
+}
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example).
@@ -219,7 +228,13 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
-
+function both(arr1, arr2) {
+  var arr3 = [];
+  for (var i = 0; i < arr1.length; i++) {
+    if (arr2.indexOf(arr1[i]) != -1) arr3.push(arr1[i]);
+  }
+  return arr3;
+}
 
 
 
@@ -259,11 +274,15 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
-
+devMountainEmployees.push(tyler, cahlan, ryan, colt);
+console.log(devMountainEmployees.length);
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
+for (var i = 0; i < devMountainEmployees.length; i++) {
+  if (devMountainEmployees[i].name == "Cahlan") devMountainEmployees.splice(i,1);
+};
 
 
 
@@ -306,6 +325,7 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
+var users = []
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -319,6 +339,21 @@ var user1 = {
 };
 
 //Your Code Here
+var user2 = {
+    name: 'Asucena Nagar',
+    email: 'aquasj128@gmail.com',
+    password: 'chi-walli-walli-hunnybunny',
+    username: 'Suzy'
+};
+
+var user3 = {
+    name: 'Steven Paul Gray',
+    email: 'aquasaurious@gmail.com',
+    password: 'boing',
+    username: 'aquas'
+};
+
+users.push(user1, user2, user3);
 
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
@@ -329,5 +364,9 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+for (var i = 0; i < users.length; i++) {
+  if (users[i].name == "Tyler McGinnis") users.splice(i, 1);
+};
+
 
 //The activity we just did is very much how data works in 'the real world'.
